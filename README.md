@@ -48,28 +48,23 @@ SentiWordNet can be imported like this:
   
   <li>
     <p>
-   Word length:5
-
+    Word length:5
     </p>  
   </li>
   
   
     <li>
-    <p>
-   Letter Choices: RUFTGFISTZLX
-
-
-    </p>  
-  </li>
+      <p>
+        Letter Choices: RUFTGFISTZLX
+     </p>  
+    </li>
   
   
     <li>
-    <p>
-   Answer: FRUIT
-
-
-    </p>  
-  </li>
+      <p>
+      Answer: FRUIT
+      </p>  
+    </li>
   
   
 </ol>
