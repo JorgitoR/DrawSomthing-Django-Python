@@ -45,9 +45,11 @@ SentiWordNet can be imported like this:
 
 
 Example Question
-
+<br>
   Word length:5
+<br>
   Letter Choices: RUFTGFISTZLX
+<br>
   Answer: FRUIT
   
 
