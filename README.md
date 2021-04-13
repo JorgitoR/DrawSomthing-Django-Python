@@ -43,14 +43,16 @@ SentiWordNet can be imported like this:
 </ol>
 
 
+<p>
 <strong>Example Question</strong>
+</p>
 <ol>
   
-  <li>
-    <p>
-    Word length:5
-    </p>  
-  </li>
+    <li>
+      <p>
+      Word length:5
+       </p>  
+   </li>
   
   
     <li>
