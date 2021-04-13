@@ -44,7 +44,10 @@ SentiWordNet can be imported like this:
 
 
 
-Example Question
+<p>
+  <strong>Example Question</strong>
+</p>  
+<br>
 <br>
   Word length:5
 <br>
