@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="ui-content">
+
+
+<form  method="post" class="proyecto_form">
+	{% csrf_token %}
+    <label for="length">¿Cuantas Palabras?</label>
+    <input type="number" data-clear-btn="false" id="length" name="length" min="1" max="26" value="{{ length }}">
+    <label for="letters">Ingrese las opciones de letra:</label>
+    <input type="text" id="letters" name="letters" value="{{ letters }}" style="text-transform:uppercase">
+    
+    <button type="submit">
+    	Encontrar las posibles Soluciones
+    </button>
+</form>
+
+
+</div>
+
+
+<div id="opciones">
+	
+</div>
+<div class="matches">
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+{% block script %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+
+
+$('.proyecto_form').submit(function(event){
+    event.preventDefault()
+    alert("YES")
+    getLista()
+
+});
+
+    
+function getLista(){
+
+    console.log("Funcionando llamada  a funcion")
+
+    
+   	$.ajax({
+
+        url : 'CrearSolucion',
+        method : "POST",
+        data : {	
+
+        	length : $('#length').val(),
+        	letters : $('#letters').val()	
+
+    	},
+
+        success : function(json){
+
+            console.log(json.lista)
+
+            $('#opciones').prepend("<h4>Se encontraron "+ json.palabras +" | "+ json.length +" las siguientes coincidencia (s):</h4>")
+
+            $('#li_lista').prepend(json.lista)	
+
+            for(var i =0 ; i<=json.lista.length - 1; i++){
+
+            	console.log(json.lista[i])
+            	$('.matches').append("<li>"+ json.lista[i] +"</li>")	
+            }
+        },
+
+    })
+
+};
+
+
+
+
+          // Esta funcion obtiene un cookie con un nombre de pila
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // ¿Esta cadena de cookies comienza con el nombre que queremos?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+
+    /*
+    La funcion abajo creará un header con csrf_token
+    */
+
+    function csrfSafeMethod(method) {
+       
+        //Este metodo HTTP no requiere la protecion CSRF  
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    function sameOrigin(url) {
+        //  prueba que una URL dada es una URL del mismo origen
+        // url podría ser relativo o esquema relativo o absoluto
+        var host = document.location.host; // host + port
+        var protocol = document.location.protocol;
+        var sr_origin = '//' + host;
+        var origin = protocol + sr_origin;
+        // Permitir URLs absolutas o relativas al mismo origen
+        return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+            (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+            // o cualquier otra URL que no sea un esquema relativo o absoluto, es decir, relativo.
+            !(/^(\/\/|http:|https:).*/.test(url));
+    }
+
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {
+                // Envia el Token al mismo origen,solo URL relativas.
+                // Envíe el token solo si el método garantiza la protección CSRF
+                // Usando el valor CSRFToken adquirido anteriormente
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+
+
+
+    
+</script>
+
+
+{% endblock %}
