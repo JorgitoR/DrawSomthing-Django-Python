@@ -43,33 +43,13 @@ SentiWordNet can be imported like this:
 </ol>
 
 
-<p>
-<strong>Example Question</strong>
-</p>
-<ol>
+
+Example Question
+
+  Word length:5
+  Letter Choices: RUFTGFISTZLX
+  Answer: FRUIT
   
-    <li>
-      <p>
-      Word length:5
-       </p>  
-   </li>
-  
-  
-    <li>
-      <p>
-        Letter Choices: RUFTGFISTZLX
-     </p>  
-    </li>
-  
-  
-    <li>
-      <p>
-      Answer: FRUIT
-      </p>  
-    </li>
-  
-  
-</ol>
 
 
 <p>
