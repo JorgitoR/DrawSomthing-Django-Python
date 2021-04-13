@@ -1,4 +1,4 @@
-#Encontrar las soluciones para DrawSomthing. Django - Python
+Find the posibles soluction for the play DrawSomthing. Django - Python
 
 
 If you don´t speak english and you are playing this game <strong>DrawSomthing</strong> with just draw and random letters, some words are hard to find, so  I developed this way to
@@ -14,37 +14,6 @@ SentiWordNet can be imported like this:
 
 >>> from nltk.corpus import sentiwordnet as swn
 
-
-<p>
-  <strong>Featured</strong>
-</p>
-
-<ol>
-  
-  <li>
-    <p>
-    Gestor de Proyectos que permite añadir Tareas con titulo, Socio "Operador", descripcion.
-    </p>  
-  </li>
-  
-  
-  <li>
-    <p>
-    Al desarrollar un Proyecto, al correo electronico "Email" del Socio "Operador" se le indicara que tiene un proyecto
-    </p>  
-  </li>
-  
-  
-  <li>
-    <p>
-      Cada proyecto  tiene tareas por realizar.
-    </p>  
-  </li>
-  
-  
-
- 
-</ol>
 
 <p>
   <strong>Requirements.</strong>
